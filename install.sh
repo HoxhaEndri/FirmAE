@@ -18,10 +18,8 @@ echo "host all all 172.17.0.1/24 trust" | sudo -u postgres tee --append /etc/pos
 
 
 # for binwalk
-wget https://github.com/ReFirmLabs/binwalk/archive/refs/tags/v2.3.3.tar.gz && \
-  tar -xf v2.3.3.tar.gz && \
-  cd binwalk-2.3.3 && \
-  sed -i 's/^install_unstuff//g' deps.sh && \
+git clone https://github.com/HoxhaEndri/binwalk.git && \
+  cd binwalk && \
   echo y | ./deps.sh && \
   sudo python3 setup.py install
 sudo apt-get install -y 
